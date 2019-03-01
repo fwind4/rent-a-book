@@ -82,7 +82,11 @@ $ npm run monstart
 **7. Általános Git**
 
 ```bash
-$ git checkout -b [branch nev] 
+$ git checkout -b [branch nev] # új branch létrehozás
+$ git checkout [branch nev] #letező branch kiválasztás
+$ git add .
+$ git commit -m [egy leirár amit csináltatok]
+$ git push origin [branch nev]
 ```
 
 </details>
