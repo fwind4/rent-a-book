@@ -1,5 +1,7 @@
 # rent-a-book
 
+<details><summary><b>Install Tutorial<b></summary>
+
 **Itt egy összegzés, hogy mit kéne csináljatok, hogy menjen.**
 
 **1. Install**
@@ -61,9 +63,9 @@ $ cp config/config.demo.json config/config.json
 - A létrejott `config.json`-ben írjátok át ezt a részt (használjatok idézőjeleket):
 ```json
 "development": {
-    "username": [db felhasznalo],
-    "password": [db pass],
-    "database": [db amit létrehoztatok],
+    "username": "[db felhasznalo]",
+    "password": "[db pass]",
+    "database": "[db amit létrehoztatok]",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
@@ -76,3 +78,49 @@ $ npm run monstart
 ```
 
 [localhost:3000](http://localhost:3000/)
+
+</details>
+
+<details><summary>Terv</summary>
+
+1. Táblak/Modellek
+
+- User: 
+    - firstName
+    - lastName
+    - email
+    - passwordHash
+- Library:
+    - userId
+    - bookId
+- Book:
+    - title
+    - author
+    - description
+    - path
+
+2. Feluletek/Views
+
+- Navbar : *Barni*
+- Login, Signup : passport - *Csabi*
+    - login.ejs - *Alpár*
+    - signup.ejs - *Alpár*
+- Fő oldal *Barni*
+- Dashboard : 
+    - Active user list *Csabi*
+    - Selected user book list *Csabi*
+- Search : search.ejs *Barni*
+- Profile
+    - profile.ejs *Alpár*
+
+3. Socket IO/WebSocket
+    - userek közötti könyv megosztás
+
+4. Tanulás, Dokumentálodás
+
+- jQuery.ajax
+- Node js
+- Express js
+- Sequelize js
+
+</details>
