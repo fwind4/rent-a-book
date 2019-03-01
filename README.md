@@ -79,6 +79,12 @@ $ npm run monstart
 
 [localhost:3000](http://localhost:3000/)
 
+**7. Általános Git**
+
+```bash
+$ git checkout -b [branch nev] 
+```
+
 </details>
 
 <details><summary>Terv</summary>
