@@ -1,9 +1,7 @@
 # rent-a-book
 
-<span style="color:orange;font-size:18px;">
-    FONTOS! <br>
-    Ne felejtsétek lehuzni a változésokat a <i>development<i> branchről mielött neki álltok csinálni dolgokat.
-</span>
+###    **FONTOS!** 
+###    **Ne felejtsétek lehuzni a változésokat a *development* branchről mielött neki álltok csinálni dolgokat.**
 
 ```bash
 $ git pull origin development
@@ -125,6 +123,7 @@ $ git pull origin [branch nev]
 
 2. Feluletek/Views
 
+- Általános *theme* : common.css - *Alpár* vagy *Barni*
 - Navbar : *Barni*
 - Login, Signup : passport - *Csabi*
     - login.ejs - *Alpár*
