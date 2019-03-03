@@ -1,5 +1,16 @@
 # rent-a-book
 
+<span style="color:orange;font-size:18px;">
+    FONTOS! <br>
+    Ne felejtsétek lehuzni a változésokat a <i>development<i> branchről mielött neki álltok csinálni dolgokat.
+</span>
+
+```bash
+$ git pull origin development
+```
+
+----------
+
 <details><summary><b>Install Tutorial<b></summary>
 
 **Itt egy összegzés, hogy mit kéne csináljatok, hogy menjen.**
@@ -87,9 +98,12 @@ $ git checkout [branch nev] #letező branch kiválasztás
 $ git add .
 $ git commit -m [egy leirár amit csináltatok]
 $ git push origin [branch nev]
+$ git pull origin [branch nev]
 ```
 
 </details>
+
+----------
 
 <details><summary>Terv</summary>
 
