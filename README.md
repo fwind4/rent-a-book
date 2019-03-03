@@ -123,6 +123,7 @@ $ git pull origin [branch nev]
 
 2. Feluletek/Views
 
+- Általános *theme* : common.css - *Alpár* vagy *Barni*
 - Navbar : *Barni*
 - Login, Signup : passport - *Csabi*
     - login.ejs - *Alpár*
