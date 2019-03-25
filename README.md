@@ -107,15 +107,15 @@ $ git pull origin [branch nev]
 
 1. Táblak/Modellek
 
-- User: 
+- [x] User: 
     - firstName
     - lastName
     - email
     - passwordHash
-- Library:
+- [ ] Library:
     - userId
     - bookId
-- Book:
+- [ ] Book:
     - title
     - author
     - description
@@ -123,20 +123,20 @@ $ git pull origin [branch nev]
 
 2. Feluletek/Views
 
-- Általános *theme* : common.css - *Alpár* vagy *Barni*
-- Navbar : *Barni*
-- Login, Signup : passport - *Csabi*
+- [ ] Általános *theme* : common.css - *Alpár* vagy *Barni*
+- [ ] Navbar : *Barni*
+- [ ] Login, Signup : passport - *Csabi*
     - login.ejs - *Alpár*
     - signup.ejs - *Alpár*
-- Fő oldal *Barni*
-- Dashboard : 
+- [ ] Fő oldal *Barni*
+- [ ] Dashboard : 
     - Active user list *Csabi*
     - Selected user book list *Csabi*
-- Search : search.ejs *Barni*
-- Profile
+- [ ] Search : search.ejs *Barni*
+- [ ] Profile
     - profile.ejs *Alpár*
 
-3. Socket IO/WebSocket
+3. [ ] Socket IO/WebSocket
     - userek közötti könyv megosztás
 
 4. Tanulás, Dokumentálodás
