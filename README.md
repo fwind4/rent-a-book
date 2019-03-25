@@ -1,5 +1,16 @@
 # rent-a-book
 
+###    **FONTOS!** 
+###    **Ne felejtsétek lehuzni a változésokat a *development* branchről mielött neki álltok csinálni dolgokat.**
+
+```bash
+$ git pull origin development
+```
+
+----------
+
+<details><summary><b>Install Tutorial<b></summary>
+
 **Itt egy összegzés, hogy mit kéne csináljatok, hogy menjen.**
 
 **1. Install**
@@ -61,9 +72,9 @@ $ cp config/config.demo.json config/config.json
 - A létrejott `config.json`-ben írjátok át ezt a részt (használjatok idézőjeleket):
 ```json
 "development": {
-    "username": [db felhasznalo],
-    "password": [db pass],
-    "database": [db amit létrehoztatok],
+    "username": "[db felhasznalo]",
+    "password": "[db pass]",
+    "database": "[db amit létrehoztatok]",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
@@ -76,3 +87,63 @@ $ npm run monstart
 ```
 
 [localhost:3000](http://localhost:3000/)
+
+**7. Általános Git**
+
+```bash
+$ git checkout -b [branch nev] # új branch létrehozás
+$ git checkout [branch nev] #letező branch kiválasztás
+$ git add .
+$ git commit -m [egy leirár amit csináltatok]
+$ git push origin [branch nev]
+$ git pull origin [branch nev]
+```
+
+</details>
+
+----------
+
+<details><summary>Terv</summary>
+
+1. Táblak/Modellek
+
+- [x] User: 
+    - firstName
+    - lastName
+    - email
+    - passwordHash
+- [ ] Library:
+    - userId
+    - bookId
+- [ ] Book:
+    - title
+    - author
+    - description
+    - path
+
+2. Feluletek/Views
+
+- [ ] Általános *theme* : common.css - *Alpár* vagy *Barni*
+- [ ] Navbar : *Barni*
+- [ ] Login, Signup : passport - *Csabi*
+    - login.ejs - *Alpár*
+    - signup.ejs - *Alpár*
+- [ ] Fő oldal *Barni*
+- [ ] Dashboard : 
+    - Active user list *Csabi*
+    - Selected user book list *Csabi*
+- [ ] Search : search.ejs *Barni*
+- [ ] Profile
+    - profile.ejs *Alpár*
+
+3. [ ] Socket IO/WebSocket
+    - userek közötti könyv megosztás
+
+4. Tanulás, Dokumentálodás
+
+- jQuery.ajax
+- Node js
+- Express js
+- Sequelize js
+
+</details>

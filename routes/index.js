@@ -1,17 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models');
+var UserController = require('../controllers/userController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Rent a book' });
 });
 
-router.get('/users', function(req, res, next) {
-  models.User.findAll().then(function (users) {
-    res.send(users);
-  });
-});
-
+router.use('/user', UserController);
 
 module.exports = router;
