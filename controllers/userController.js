@@ -36,13 +36,17 @@ router.post('/profile', isLoggedIn, function (req, res, next) {
     
 });
 
-//router.get('/logout', authController.logout);
+router.get('/logout', function (req, res) {
+    req.session.destroy(function (err) {
+        res.redirect('/');
+    });
+});
 
 router.get('/login', function (req, res, next) {
     res.render('login');
 });
 
-router.post('/login', passport.authenticate('local-signin', {
+router.post('/login', passport.authenticate('local-login', {
     successRedirect: '/user/list',
     failureRedirect: '/user/login'
 }));
