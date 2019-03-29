@@ -11,15 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     password: {
-      type: Sequelize.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
     },
     lastLogin: {
-      type: Sequelize.DATE
+      type: DataTypes.DATE
     },
     status: {
-      type: Sequelize.ENUM('active', 'inactive'),
-      defaultValue: 'active'
+      type: DataTypes.ENUM('active', 'inactive'),
     }
     
   }, {});
