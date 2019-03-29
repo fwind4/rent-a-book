@@ -51,9 +51,11 @@ button:active {
 .backgroundimg{
 
   
-  background: url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background: url('/uploads/images/book.jpg');
   background-size: cover;
   background-repeat:no-repeat;
   height:100vh;
   width:100%;
+  
+ 
 }
