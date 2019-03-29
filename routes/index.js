@@ -4,7 +4,7 @@ var UserController = require('../controllers/userController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login');
+  res.render('index', { title: 'homepage' });
 });
 
 router.use('/user', UserController);
