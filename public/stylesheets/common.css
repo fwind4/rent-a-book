@@ -1,0 +1,25 @@
+button{
+    border-radius: 25px !important;
+    border: 2px solid  rgb(32, 8, 168);
+    font-size: 15px;
+    font-family: unset;
+}
+
+a{
+    color: #00B7FF;
+}
+
+.container {
+    padding: 16px;
+}
+
+.cancelbtn {
+    width: auto !important;
+    padding: 10px 18px !important;
+    background-color: #f44336 !important;
+}
+
+span.psw {
+    float: center;
+    padding-top: 16px;
+}

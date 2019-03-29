@@ -28,11 +28,15 @@ router.post('/signup', passport.authenticate('local-signup', {
 }));
 
 router.get('/login', function (req, res, next) {
-    res.render('signup');
+    res.render('login');
 });
 
 router.post('/login', function (req, res, next) {
     
 });
+
+router.get('/profile', function (req, res, next) {
+    res.render('profile');
+})
 
 module.exports = router;
