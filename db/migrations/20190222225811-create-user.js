@@ -17,8 +17,15 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      passwordHash: {
+      password: {
         type: Sequelize.STRING
+      },
+      lastLogin: {
+        type: Sequelize.DATE
+      },
+      status: {
+        type: Sequelize.ENUM('active', 'inactive'),
+        defaultValue: 'active'
       },
       createdAt: {
         allowNull: false,
