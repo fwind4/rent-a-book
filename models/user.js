@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true
       }
     },
-    passwordHash: DataTypes.STRING,
+    password: {
+      type: DataTypes.STRING,
+    },
+    lastLogin: {
+      type: DataTypes.DATE
+    },
+    status: {
+      type: DataTypes.ENUM('active', 'inactive'),
+    }
     
   }, {});
   User.associate = function (models) {
