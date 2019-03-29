@@ -1,18 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-require('./app/config/passport.js')(passport, models.user);
+var passport = require('passport');
+require('../config/passport.js')(passport, models.User);
 
-passport.use(new LocalStrategy(
-    function (email, password, done) {
-        models.User.findOne({ email: email }, function (err, user) {
-            if (err) { return done(err); }
-            if (!user) { return done(null, false); }
-            if (!user.verifyPassword(password)) { return done(null, false); }
-            return done(null, user);
-        });
-    }
-));
+
 
 router.get('/', function (req, res, next) {
     res.render('index', { title: 'User space' });
@@ -31,8 +23,8 @@ router.get('/signup', function (req, res, next) {
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/list',
-    failureRedirect: '/signup'
+    successRedirect: '/user/list',
+    failureRedirect: '/user/signup'
 }));
 
 router.get('/login', function (req, res, next) {
