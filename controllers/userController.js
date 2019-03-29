@@ -1,18 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-require('./app/config/passport.js')(passport, models.user);
+var passport = require('passport');
+require('../config/passport.js')(passport, models.User);
 
-passport.use(new LocalStrategy(
-    function (email, password, done) {
-        models.User.findOne({ email: email }, function (err, user) {
-            if (err) { return done(err); }
-            if (!user) { return done(null, false); }
-            if (!user.verifyPassword(password)) { return done(null, false); }
-            return done(null, user);
-        });
-    }
-));
+
 
 router.get('/', function (req, res, next) {
     res.render('index', { title: 'User space' });
@@ -22,8 +14,12 @@ router.get('/list', function (req, res, next) {
     models.User.findAll().then((users) => {
         res.send(users);
     }).catch((err) => {
-        res.render('error', {message: 'Error', error: err});        
+        res.render('error', { message: 'Error', error: err });
     });
+});
+
+router.get('/signup', function (req, res, next) {
+    res.render('signup');
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
@@ -31,23 +27,30 @@ router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect: '/user/signup'
 }));
 
-//app.get('/profile', isLoggedIn, authController.dashboard);
+router.get('/profile', isLoggedIn, function (req, res, next) {
+    res.render('profile');    
+});
 
-//app.get('/logout', authController.logout);
+router.post('/profile', isLoggedIn, function (req, res, next) {
+    console.log(req.body);
+    
+});
 
-app.post('/login', passport.authenticate('local-signin', {
+//router.get('/logout', authController.logout);
+
+router.get('/login', function (req, res, next) {
+    res.render('login');
+});
+
+router.post('/login', passport.authenticate('local-signin', {
     successRedirect: '/user/list',
     failureRedirect: '/user/login'
 }));
 
-
 function isLoggedIn(req, res, next) {
-
     if (req.isAuthenticated())
-
         return next();
-
     res.redirect('/login');
-
 }
+
 module.exports = router;
