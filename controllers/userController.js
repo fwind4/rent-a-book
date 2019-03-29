@@ -35,9 +35,9 @@ router.post('/signup', passport.authenticate('local-signup', {
 
 //app.get('/logout', authController.logout);
 
-app.post('/signin', passport.authenticate('local-signin', {
+app.post('/login', passport.authenticate('local-signin', {
     successRedirect: '/user/list',
-    failureRedirect: '/user/signin'
+    failureRedirect: '/user/login'
 }));
 
 
@@ -47,7 +47,7 @@ function isLoggedIn(req, res, next) {
 
         return next();
 
-    res.redirect('/signin');
+    res.redirect('/login');
 
 }
 module.exports = router;
