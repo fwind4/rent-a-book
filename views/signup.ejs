@@ -1,8 +1,8 @@
 
 <% layout('layout') -%>
 
-<div class="container fluid" style="width: 400px; text-align: center;margin-top:2%">
-<form method="post" style="border:1px solid #ccc">
+<div class="container fluid" style="width: 400px; text-align: center; margin-top:2%">
+<form method="post" style="border:5px solid  rgb(89, 127, 209)">
     <div class="container ">
      
       <div class="form-group">
@@ -14,19 +14,25 @@
           <label for="exampleInputLastName"><b>Last Name</b></label>
           <input type="text" class="form-control" placeholder="Last Name" name="lastname">
       </div>
+
+      <div class="form-group">
+          <label for="email"><b>Email</b></label>
+          <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group">
+          <label for="psw"><b>Password</b></label>
+          <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+      </div>
+
+      <div class="form-group">
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input class="form-control" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      </div>  
   
-      <label for="email"><b>Email</b></label>
-      <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
-  
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input class="form-control" type="password" placeholder="Repeat Password" name="psw-repeat" required>
-  
-     <div class="container">
-     <button type="submit">Sign Up</button>
-    </div>
+      <div class="container">
+          <button type="submit">Sign Up</button>
+      </div>
     </div>
 </div>
   </form>
