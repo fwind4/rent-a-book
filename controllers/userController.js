@@ -27,16 +27,30 @@ router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect: '/user/signup'
 }));
 
+router.get('/profile', isLoggedIn, function (req, res, next) {
+    res.render('profile');    
+});
+
+router.post('/profile', isLoggedIn, function (req, res, next) {
+    console.log(req.body);
+    
+});
+
+//router.get('/logout', authController.logout);
+
 router.get('/login', function (req, res, next) {
     res.render('login');
 });
 
-router.post('/login', function (req, res, next) {
-    
-});
+router.post('/login', passport.authenticate('local-signin', {
+    successRedirect: '/user/list',
+    failureRedirect: '/user/login'
+}));
 
-router.get('/profile', function (req, res, next) {
-    res.render('profile');
-})
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/login');
+}
 
 module.exports = router;
