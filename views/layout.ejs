@@ -15,9 +15,9 @@
     <!-- styles -->
     <link href="/stylesheets/style.css" rel="stylesheet">
     <link href="/stylesheets/common.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
  
 </head>
 
@@ -25,23 +25,48 @@
 <body>   
   
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-                <a class="navbar-brand" href="/">Rent a book</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                     
-                  </ul>
-                  <a type="button" href="/user/login"  class="btn btn-light my-2 my-lg-0">Log in</a>
-                  <a  type="button" href="/user/signup" class="btn btn-dark my-2 my-lg-0">Sign up</a>
-                  
-                </div>
-              </nav>
-    <div class="row backgroundimg">
-      <%- body %>
-  </div>
+			<a class="navbar-brand" href="/">Rent a book</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					
+				</ul>
+				<a type="button" href="/user/login"  class="btn btn-light my-2 my-lg-0">Log in</a>
+				<a  type="button" href="/user/signup" class="btn btn-dark my-2 my-lg-0">Sign up</a>
+				
+			</div>
+        </nav>
+
+	<div class="row backgroundimg">
+		<div class="container-fluid">
+			<% if (messages) { %>
+				<% if (messages.error) { %>
+					<div class="alert alert-danger alert-dismissible fade show"><%=messages.error%>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<% } else if (messages.success || messages.info) { %>
+					<div class="alert alert-success alert-dismissible fade show">
+						<%=messages.success || messages.info%>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<% } else if (messages.warning) { %>
+					<div class="alert alert-warning alert-dismissible fade show"><%=messages.warning%>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<% } %>
+			<% } %>
+		</div>
+      	<%- body %>
+  	</div>
 
 </body>
 
