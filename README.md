@@ -112,10 +112,10 @@ $ git pull origin [branch nev]
     - lastName
     - email
     - passwordHash
-- [ ] Library:
+- [x] Library:
     - userId
     - bookId
-- [ ] Book:
+- [x] Book:
     - title
     - author
     - description
@@ -125,7 +125,7 @@ $ git pull origin [branch nev]
 
 - [ ] Általános *theme* : common.css - *Alpár* vagy *Barni*
 - [ ] Navbar : *Barni*
-- [ ] Login, Signup : passport - *Csabi*
+- [x] Login, Signup : passport - *Csabi*
     - login.ejs - *Alpár*
     - signup.ejs - *Alpár*
 - [ ] Fő oldal *Barni*

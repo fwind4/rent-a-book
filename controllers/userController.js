@@ -24,10 +24,11 @@ router.get('/signup', function (req, res, next) {
 
 router.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/user/list',
-    failureRedirect: '/user/signup'
+    failureRedirect: '/user/signup',
+    failureFlash: true
 }));
 
-router.get('/profile', isLoggedIn, function (req, res, next) {
+router.get('/profile',  isLoggedIn, function (req, res, next) {
     res.render('profile');    
 });
 
@@ -48,13 +49,14 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login', passport.authenticate('local-login', {
     successRedirect: '/user/list',
-    failureRedirect: '/user/login'
+    failureRedirect: '/user/login',
+    failureFlash: true
 }));
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('/login');
+    res.redirect('/user/login');
 }
 
 module.exports = router;
