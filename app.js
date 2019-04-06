@@ -27,6 +27,14 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
+app.use(function (req, res, next) {
+  req.app.locals.isLoggedIn = req.isAuthenticated();
+  if (req.isAuthenticated()) {
+    req.app.locals.user = req.user
+  }
+  next();
+});
+
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
