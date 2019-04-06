@@ -40,12 +40,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/user/signup">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/login">Log In</a>
-          </li>
+          <% if (isLoggedIn) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/profile"><%=user.email%></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/logout">Log Out</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/login">Log In</a>
+            </li>
+          <% } %>
         </ul>
       </div>
     </div>

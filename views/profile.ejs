@@ -7,17 +7,17 @@
 
             <div class="form-group">
                <label for="exampleInputEmail1"><b>Email address</b></label>
-               <input disabled type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <input disabled value="<%=user.email%>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputFirstName"><b>First Name</b></label>
-                <input type="text" class="form-control" placeholder="First Name">
+                <input value="<%=user.firstName || ''%>" type="text" class="form-control" placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputLastName"><b>Last Name</b></label>
-                <input type="text" class="form-control" placeholder="Last Name">
+                <input value="<%=user.lastName || ''%>" type="text" class="form-control" placeholder="Last Name">
             </div>
 
             <div class="form-group">
