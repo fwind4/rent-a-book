@@ -1,0 +1,37 @@
+
+<% layout('../layout') -%>
+
+
+<div class="container fluid" style="width: 800px; text-align: center; margin-top:2%">
+<h1>Add New Book</h1>
+<form method="post" style="background-color:  rgb(151, 184, 223); border:5px solid  rgb(126, 141, 223); text-align: center">
+    <div class="container ">
+     
+      <div class="form-group">
+          <label ><b>Book Title</b></label>
+          <input value="<%=book.title || ''%>" required type="text" class="form-control" placeholder="Book Title" name="title">
+      </div>
+
+      <div class="form-group">
+          <label ><b>Author</b></label>
+          <input value="<%=book.author || ''%>" type="text" class="form-control" placeholder="Author" name="author">
+      </div>
+
+      <div class="form-group">
+          <label ><b>Description</b></label>
+          <textarea style="min-height:200px;" class="form-control" placeholder="Description" name="description" required><%=book.description || ''%></textarea>
+      </div>
+
+      <div class="form-group">
+          <label ><b>Pdf Path</b></label>
+          <input value="<%=book.path || ''%>" required class="form-control" type="text" placeholder="Browse..." name="path" required>
+      </div>
+  
+      <div class="container">
+          <button type="submit">Add</button>
+      </div>
+    </div>
+</div>
+  </form>
+
+

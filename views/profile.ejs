@@ -8,26 +8,27 @@
             <div class="form-group">
                <label for="exampleInputEmail1"><b>Email address</b></label>
                <input disabled value="<%=user.email%>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <input value="<%=user.email%>" type="hidden" class="form-control" name="email">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputFirstName"><b>First Name</b></label>
-                <input value="<%=user.firstName || ''%>" type="text" class="form-control" placeholder="First Name">
+                <input value="<%=user.firstName || ''%>" type="text" class="form-control" placeholder="First Name" name="firstname">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputLastName"><b>Last Name</b></label>
-                <input value="<%=user.lastName || ''%>" type="text" class="form-control" placeholder="Last Name">
+                <input value="<%=user.lastName || ''%>" type="text" class="form-control" placeholder="Last Name" name="lastname">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1"><b>Password</b></label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="psw">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1"><b>Password Again</b></label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pswrepeat">
             </div>
 
             <button type="submit">Submit</button>

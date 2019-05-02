@@ -39,6 +39,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+          </li>
+           <li class="nav-item">
+              <a class="nav-link" href="/user/list">Active Users</a>
+          </li>
+           <li class="nav-item">
+              <a class="nav-link" href="/library">My Library</a>
+          </li>
+        </ul>
         <ul class="navbar-nav ml-auto">
           <% if (isLoggedIn) { %>
             <li class="nav-item">
@@ -93,5 +104,12 @@
 <footer>
 
 </footer>
+
+<script>
+    $(function(){
+        var path = window.location.pathname;
+        $('.nav-item a[href="'+path+'"]').parents('li').addClass('active');
+    });
+</script>
 
 </html>

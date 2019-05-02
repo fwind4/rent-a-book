@@ -10,6 +10,12 @@ router.get('/', function (req, res, next) {
 
 router.use('/user', UserController);
 
-router.use('/library', LibraryController);
+router.use('/library', isLoggedIn, LibraryController);
+
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated())
+		return next();
+	res.redirect('/user/login');
+}
 
 module.exports = router;
