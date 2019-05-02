@@ -22,8 +22,17 @@ router.get('/signup', function (req, res, next) {
     res.render('signup');
 });
 
+router.post('/signup', function (req, res, next) {
+    if (req.body.psw === req.body.pswrepeat) {
+        next();
+    } else {
+        req.flash('error', 'Passwords must match!');
+        res.render('signup');
+    }
+});
+
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/user/list',
+    successRedirect: '/user/profile',
     failureRedirect: '/user/signup',
     failureFlash: true
 }));
@@ -33,9 +42,19 @@ router.get('/profile',  isLoggedIn, function (req, res, next) {
 });
 
 router.post('/profile', isLoggedIn, function (req, res, next) {
-    console.log(req.body);
-    
+    if (req.body.psw === req.body.pswrepeat) {
+        next();
+    } else {
+        req.flash('error', 'Passwords must match!');
+        res.render('profile');
+    }
 });
+
+router.post('/profile', isLoggedIn, passport.authenticate('local-update', {
+    successRedirect: '/user/profile',
+    failureRedirect: '/user/profile',
+    failureFlash: true
+}));
 
 router.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
