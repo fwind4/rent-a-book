@@ -1,3 +1,39 @@
 <% layout('../layout') -%>
 
-<div>dsadsada</div>
+<div class="container fluid" style="text-align: center; margin-top:2%">
+    <a class="btn btn-info" href="/library/add">Add Book</a>
+    <hr>
+    <% lib.forEach(l => { %>
+        <a href="/library/update/<%=l.Book.id%>" class="book-box">
+            <h3><%=l.Book.title%></h3>
+            <h4>by <%=l.Book.author%></h4>
+            <br>
+            <h5><%=l.Book.description%></h5>
+        </a>
+    <% }); %>
+
+</div>
+
+<style>
+    .book-box {
+        display: block;
+        text-align: left;
+        background-color: white;
+        color: black;
+        height: 150px;
+        width: 100%;
+        margin: 5px;
+        padding: 15px;
+    }
+
+    .book-box:hover {
+        color: grey;
+        text-decoration: none;
+    }
+
+    .book-box h5 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
