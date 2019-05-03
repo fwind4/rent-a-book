@@ -22,6 +22,10 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^4.42.0",
-    "sequelize-cli": "^5.4.0"
+    "sequelize-cli": "^5.4.0",
+    "socket.io": "^2.2.0",
+    "socket.io-p2p": "^2.2.0",
+    "socket.io-p2p-server": "^1.2.0",
+    "socket.io-stream": "^0.9.1"
   }
 }

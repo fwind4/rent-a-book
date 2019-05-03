@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('rent-a-book:server');
 var http = require('http');
 var sequelize = require('../models').sequelize;
+var models = require('../models');
 
 /**
  * Get port from environment and store in Express.
@@ -32,6 +33,44 @@ sequelize.sync().then(() => {
   server.on('error', onError);
   server.on('listening', onListening);
 });
+
+var p2pserver = require("socket.io-p2p-server").Server;
+var ss = require("socket.io-stream");
+// Set up the Socket.IO server
+var io = require("socket.io")(server)
+  .use(p2pserver)
+  .use(function (socket, next) {
+    // Wrap the express middleware
+    app.sessionMiddleware(socket.request, {}, next);
+  })
+  .on("connection", function (socket) {
+    if (socket.request.session.passport) {
+      var userId = socket.request.session.passport.user;
+      console.log("Your User ID is", userId);
+    } else {
+      console.log('No user logged in.');
+    }
+
+    ss(socket).on("file", function (stream, data) {
+      console.log(data);
+
+      var parts = [];
+
+      stream.on("data", function (data) {
+        parts.push(data);
+      });
+
+      stream.on("end", function () {
+        socket.broadcast.emit("file", parts);
+      });
+
+    });
+
+    ss(socket).on("req-file", function (path) { 
+      socket.broadcast.emit("req-file", path);
+    });
+  });
+
 
 /**
  * Normalize a port into a number, string, or false.

@@ -6,8 +6,12 @@ require('../config/passport.js')(passport, models.User);
 
 
 
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'User space' });
+router.get('/', isLoggedIn, function (req, res, next) {
+    models.User.findAll().then((users) => {
+        res.render('user/index', { users });
+    }).catch((err) => {
+        res.render('error', { message: 'Error', error: err });
+    });
 });
 
 router.get('/list', function (req, res, next) {

@@ -9,6 +9,13 @@ router.get('/', function (req, res, next) {
         });
 });
 
+router.get('/get-books/:userId', function (req, res, next) {
+    models.Library.findAll({ where: { userId: req.params.userId }, include: [models.Book] })
+        .then(lib => {
+            res.send(lib);
+        });
+});
+
 router.get('/add', function (req, res, next) {
     res.render('library/add', {book: {}, title: 'Add Book', btn: 'Add'});
 });
