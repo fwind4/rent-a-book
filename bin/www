@@ -46,10 +46,19 @@ var io = require("socket.io")(server)
   .on("connection", function (socket) {
     if (socket.request.session.passport) {
       var userId = socket.request.session.passport.user;
+      models.User.findOne({ where: { id: userId } })
+        .then(user => { user.update({ status: 'active'}); });
       console.log("Your User ID is", userId);
     } else {
       console.log('No user logged in.');
     }
+
+    socket.on('disconnect', function () {
+      if (socket.request.session.passport) 
+        var userId = socket.request.session.passport.user;
+      models.User.findOne({ where: { id: userId } })
+        .then(user => { user.update({ status: 'inactive' }); });
+    });
 
     ss(socket).on("file", function (stream, data) {
       console.log(data);

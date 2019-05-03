@@ -3,12 +3,13 @@
 <div >
     <div class="row">
         <div class="col" style="overflow:scroll; height:93vh;">
-            <% users.forEach(user => { %>
-                <a href="javascript:getBooks(<%=user.id%>)" class="user-box">
-                    <h4><%=user.email%></h4>
-                    <h4><%=user.firstName + ' ' + user.lastName%></h4>
+            <% users.forEach(oUser => { %>
+                <% if (oUser.id === user.id) return; %>
+                <a href="javascript:getBooks(<%=oUser.id%>)" class="user-box">
+                    <h4><%=oUser.email%></h4>
+                    <h4><%=oUser.firstName + ' ' + oUser.lastName%></h4>
                     <br>
-                    <h5><%=user.status%></h5>
+                    <h5 class="<%=oUser.status === 'active' ? 'green' : 'red'%>"><%=oUser.status%></h5>
                 </a>
             <% }); %>
         </div>
@@ -83,8 +84,15 @@
     }
 
     .user-box h5 {
-        color: green;
         font-weight: bold;
         text-transform: uppercase;
+    }
+
+    .user-box h5.green {
+        color: green;
+    }
+
+     .user-box h5.red {
+        color: red;
     }
 </style>
