@@ -123,20 +123,20 @@ $ git pull origin [branch nev]
 
 2. Feluletek/Views
 
-- [ ] Általános *theme* : common.css - *Alpár* vagy *Barni*
-- [ ] Navbar : *Barni*
+- [x] Általános *theme* : common.css - *Alpár* vagy *Barni*
+- [x] Navbar : *Barni*
 - [x] Login, Signup : passport - *Csabi*
     - login.ejs - *Alpár*
     - signup.ejs - *Alpár*
-- [ ] Fő oldal *Barni*
-- [ ] Dashboard : 
+- [x] Fő oldal *Barni*
+- [x] Dashboard : 
     - Active user list *Csabi*
     - Selected user book list *Csabi*
 - [ ] Search : search.ejs *Barni*
-- [ ] Profile
+- [x] Profile
     - profile.ejs *Alpár*
 
-3. [ ] Socket IO/WebSocket
+3. [x] Socket IO/WebSocket
     - userek közötti könyv megosztás
 
 4. Tanulás, Dokumentálodás
