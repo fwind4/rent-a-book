@@ -12,6 +12,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.sessionMiddleware = session({ cookie: { maxAge: 3600000 }, secret: 'woot' });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
@@ -21,7 +23,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ cookie: { maxAge: 60000 }, secret: 'woot' }));
+app.use(app.sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));

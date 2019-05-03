@@ -24,10 +24,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.min.js"></script>
- 
-
 </head>
-
 
 <body>
 
@@ -44,7 +41,7 @@
               <a class="nav-link" href="/">Home</a>
           </li>
            <li class="nav-item">
-              <a class="nav-link" href="/user/list">Active Users</a>
+              <a class="nav-link" href="/user">Active Users</a>
           </li>
            <li class="nav-item">
               <a class="nav-link" href="/library">My Library</a>
@@ -52,6 +49,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if (isLoggedIn) { %>
+            <input type="hidden" id="logged-in" value="true" />
             <li class="nav-item">
               <a class="nav-link" href="/user/profile"><%=user.email%></a>
             </li>
@@ -98,7 +96,31 @@
 
   <%- body %>
 
+  <div class="modal" id="transfer-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">File Transfer Request</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="file-path"></p>
+          <input type="file" id="file-transfer" value="">
+        </div>
+        <div class="modal-footer">
+          <button id="transfer-btn" type="button" class="btn btn-primary">Transfer</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io-stream/0.9.1/socket.io-stream.min.js"></script>
+    <script type="text/javascript" src="/javascripts/socketiop2p.min.js"></script>
+    <script type="text/javascript" src="/javascripts/io.js"></script>
 </body>
 
 <footer>
